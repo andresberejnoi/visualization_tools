@@ -1,0 +1,10 @@
+name: viz_tools
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - matplotlib
+  - python
+  - ipykernel
+  - pillow
+prefix: C:\Users\andre\miniconda3\envs\viz_tools

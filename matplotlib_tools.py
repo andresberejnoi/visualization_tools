@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage,AnnotationBbox,TextArea
 
-def bar_plot_with_images(df_to_plot, img_list, xtick_labels=[], orientation='v', img_scale=0.15, x_offset=0, y_offset=0, **kwargs):
+def bar_plot_with_images(df_to_plot, img_list, xtick_labels=[], orientation='v', img_scale=0.15, x_offset=0, y_offset=0, frameon=False, **kwargs):
     fig, ax = plt.subplots()
     # fig = plt.figure()
     # ax  = fig.add_axes()
@@ -47,7 +47,7 @@ def bar_plot_with_images(df_to_plot, img_list, xtick_labels=[], orientation='v',
         #-- create an annotation box container for each image
         imagebox = OffsetImage(img, zoom = img_scale)
         #imagebox.image.axes = ax
-        ab = AnnotationBbox(imagebox, (_x,_y), frameon=False)
+        ab = AnnotationBbox(imagebox, (_x,_y), frameon=frameon)
 
         ax.add_artist(ab)
         # _value:str = f"{bar.get_height():.2f}%"

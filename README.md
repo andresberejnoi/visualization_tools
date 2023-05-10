@@ -9,4 +9,6 @@ First, a simple bar chart using pandas' `df.plot` method:
 ![Simple Bar Chart](sample_images/vanilla_bar_chart.png)
 
 and after using the tool, we get the following plot (many image parameters can be modified, such as size, position, border line, etc):
+
+
 ![Image-annotated Bar Chart](sample_images/bar_plot_with_images.png)

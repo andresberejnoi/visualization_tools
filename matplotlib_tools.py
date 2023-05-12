@@ -1,7 +1,19 @@
 import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage,AnnotationBbox,TextArea
 
-def bar_plot_with_images(df_to_plot, img_list, xtick_labels=[], orientation='v', img_scale=0.15, x_offset=0, y_offset=0, frameon=False, **kwargs):
+def bar_plot_with_images(
+        df_to_plot, 
+        img_list, 
+        xtick_labels=[], 
+        orientation='v', 
+        img_scale=0.15, 
+        x_offset=0, 
+        y_offset=0, 
+        frameon=False, 
+        **kwargs,
+    ):
+
+
     fig, ax = plt.subplots()
     # fig = plt.figure()
     # ax  = fig.add_axes()
@@ -53,3 +65,38 @@ def bar_plot_with_images(df_to_plot, img_list, xtick_labels=[], orientation='v',
         # _value:str = f"{bar.get_height():.2f}%"
         # ax.annotate(_value, (bar.get_x() * 1.005, bar.get_height() * 1.005),rotation=45)  #annotate text
         
+
+def box_plot_with_images(
+        df_to_plot, 
+        img_list, 
+        xtick_labels=[], 
+        orientation='v', 
+        img_scale=0.15, 
+        x_offset=0, 
+        y_offset=0, 
+        frameon=False, 
+        color = dict(),
+        **kwargs,  
+    ):
+
+    default_color = {
+        "boxes": "DarkGreen",
+        "whiskers": "DarkOrange",
+        "medians": "DarkBlue",
+        "caps": "Gray",
+    }
+
+    color = default_color | color  #join the two dictionaries and update defaults with passed values
+
+    if orientation.lower()=='v':
+        is_vertical = True
+    
+    elif orientation.lower()=='h':
+        is_vertical = False
+    
+    
+    df_to_plot.plot.box(color=color, vert=is_vertical)
+
+
+if __name__ == "__main__":
+    pass
